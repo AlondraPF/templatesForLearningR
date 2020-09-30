@@ -1,0 +1,142 @@
+---
+title: "MarkdownTemplate"
+author: "Vásquez Guerra Carlos Fernando"
+date: "9/24/2020"
+output:
+  html_document:
+    fig_height: 4
+    fig_weight: 7
+    code_folding: hide
+    theme: united
+    css: styles.css
+    includes:
+      after_body: footer.html
+  pdf_document: default
+---
+
+<!-- Los comentarios aquí no pueden ser con "#" -->
+
+# Comencemos
+
+<!-- Agrega aquí diferentes "#" para visualizar como cambia la jerarquía en los encabezados -->
+
+Yo puedo escribir libremente, y es más fácil consultando la [CheatSheet](https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+
+<!-- Cambia el siguiente texto a negritas-->
+
+Aquí están mis notas: Listas
+
+ <!-- Cambia la palabra ecuación a cursiva -->
+ 
+ Mi primera ecuación 
+ 
+ <!-- Agrega una ecuación en formato Latex -->
+ 
+ <!-- Si conoces algo más de Latex puedes agregarlo librermente, si tienes problemas con PDF evita este punto -->
+
+<!-- Agrega una lista como receta de comida -->
+<!-- Añade la imagen de la carpeta images -->
+<!-- Inserta algún enlace de otra CheatSheet -->
+
+<!-- Completa la siguiente sentencia -->
+Se pueden tomar los resultados en un codigo 'in-line', por ejemplo, la raíz cuadrada de pi es aproximadamente 
+
+```{r}
+knitr::opts_chunk$set(echo = TRUE,
+                      warning = FALSE,
+                      message = F,
+                      fig.align = 'center', 
+                      fig.pos = 'H')
+```
+
+
+```{r}
+#Los comentarios vuelven a ser "#"
+if(!require(tidyverse)){
+  install.packages(tidyverse, dependencies = T)
+  library(tidyverse)
+}
+```
+
+Ahora una gráfica
+
+```{r, fig.pos = 'H'}
+plot(1:10, 5:14)
+```
+
+Lo anterior no se ve bien (mensajes innecesarios, tamaño no deseable, etc), lo siguiente lo soluciona:
+
+```{r setup}
+knitr::opts_chunk$set(echo = TRUE)
+# Este chunk no quiero que aparezca, haz lo necesario para que se cumpla este requerimiento
+# Cambia el tamaño de las gráficas y que siempre aparezcan donde se les indique
+# Haz que las graficas siempre esten centradas
+```
+
+<!-- Coloca aquí un chunk con diferentes dimensiones para la gráfica anterior -->
+
+Se puede modificar el diseño de muchas cosas, por ejemplo cambiando el tema, el resaltado de algunos elementos y el diseño en general de todo el archivo (en pdf es algo más complicado)
+
+<!-- Cambia a otro tema agregando: -->
+
+<!-- output: -->
+<!--   html_document: -->
+<!--     theme: ... -->
+
+Los data frames y tablas pueden tener un diseño más interactivo
+
+<!-- Cambia esto agregando: -->
+
+<!-- output: -->
+<!--   html_document: -->
+<!--     df_print: ... -->
+
+El highlight se ve claro en un data frame, por ejemplo
+
+```{r}
+iris
+```
+
+<!-- Cambia esto agregando: -->
+
+<!-- output: -->
+<!--   html_document: -->
+<!--     highlight: ... -->
+
+¿Qué sucede al agregar la opción `code_folding`?
+
+<!-- Prueba cambiando las opciones para pdf a ver que sucede -->
+
+<!-- ¿Para qué se utilizo ``? -->
+
+¿Más diseño?
+
+<!-- Agrega el archivo css en el YALM -->
+<!-- Agrega toc_float en la sálida HTML -->
+<!-- Ve que sucede al agregar keep_md : yes -->
+
+Se puede agregar contenido de HTML, de Latex y todo lo que permita el Markdown como CSS:
+
+<!-- <center> -->
+<!-- <h2>Pon tu nombre</h2> -->
+<!-- <h4>Apellidos</h4> -->
+<!-- <h4>¿Algo más?</h4> -->
+<!-- </center> -->
+
+```{r, echo=FALSE}
+library(tidyverse)
+```
+
+```{r, fig.align='center'}
+plot(x = iris$Sepal.Length, iris$Petal.Length)
+```
+
+```{r, fig.width=7, fig.height=4}
+plot(x = iris$Sepal.Length, iris$Petal.Length)
+```
+
+
+```{r, fig.width=5, fig.height=6}
+plot(x = iris$Sepal.Length, iris$Petal.Length)
+```
+
