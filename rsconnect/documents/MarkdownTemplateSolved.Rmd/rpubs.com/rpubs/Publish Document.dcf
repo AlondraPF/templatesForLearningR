@@ -1,0 +1,11 @@
+name: Publish Document
+title:
+username:
+account: rpubs
+server: rpubs.com
+hostUrl: rpubs.com
+appId: https://api.rpubs.com/api/v1/document/668981/09697c1eab5542bba19da9254b770107
+bundleId: https://api.rpubs.com/api/v1/document/668981/09697c1eab5542bba19da9254b770107
+url: http://rpubs.com/CarlosFVG/668981
+when: 1601561807.37134
+lastSyncTime: 1601561807.37135

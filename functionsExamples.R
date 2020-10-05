@@ -33,6 +33,18 @@ sum(1:40, NA ,1:50, na.rm = T)
 
 sum(j, na.rm = T)
 
+m <- matrix(1:10000000, 
+            nrow = 100)
+
+for(i in 1:dim(m)[1]){
+  aux <- 0
+  for(j in 1:dim(m)[2]){
+    aux <- aux + m[i, j]
+  }
+  print(aux)
+}
+
+base::apply(m, MARGIN = 1, function(x) x*20+5)
 
 
 
